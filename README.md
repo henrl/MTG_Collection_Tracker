@@ -2,7 +2,7 @@
 A little side project I did to keep track of cards in my MTG collection.
 
 ## Backstory
-One day, I was casually sorting through my collection, looking for yet another cardboard box to store the cards gradually filling up my room (yes, I may have a problem). Then it hit me: I have a lot of useless cardboard in my room, and I should probably get rid of some of it. But to do this, I needed a way to keep track of which cards I have in my collection and also to easily update my records if I have traded stuff away.
+One day, I was casually sorting through my collection, looking for yet another cardboard box to store the cards gradually filling up my room (yes, I may have a problem). Then it hit me: I have a lot of useless cardboard in my room, and I should probably get rid of some of it. But to do this, I needed an easy way to keep track of which cards I have in my collection and update my records if I have traded stuff away.
 
 Enter Glee_Max. It's basically just another CRUD app, but it will be useful for keeping track of my collection, as well as showing interviewers that I can code (if that means you, hi :) ).
 
