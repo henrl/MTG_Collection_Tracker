@@ -1,5 +1,7 @@
 namespace Glee_Max.Web.Models
 {
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public class Card
     {
         public int Id { get; set; }
@@ -16,6 +18,7 @@ namespace Glee_Max.Web.Models
 
         public string ManaCost { get; set; }
 
+        [Column(TypeName = "decimal(10,2)")]
         public decimal Cmc { get; set; }
 
         public string TypeLine { get; set; }
