@@ -29,7 +29,7 @@ namespace Glee_Max.Migrations
                     Toughness = table.Column<string>(nullable: true),
                     FlavorText = table.Column<string>(nullable: true),
                     CommanderLegal = table.Column<bool>(nullable: false),
-                    Quantity = table.Column<int>(nullable: false)
+                    Quantity = table.Column<int>(nullable: false, defaultValue: 0)
                 },
                 constraints: table =>
                 {
