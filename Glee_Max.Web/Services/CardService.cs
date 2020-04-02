@@ -6,6 +6,7 @@ namespace Glee_Max.Web.Services
 
     public class CardService : ICardService
     {
+        private const string DefaultLanguage = "en";
         private readonly CardContext _context;
 
         public CardService(CardContext context)
@@ -16,13 +17,18 @@ namespace Glee_Max.Web.Services
         public List<Card> GetAllCards()
         {
             //TODO: refine the select statement here so there's some mapping between db entity and dto
-            return _context.Cards.Select(c => c).ToList();
+            return _context.Cards
+                .Where(c => c.Language == DefaultLanguage)
+                .Select(c => c)
+                .ToList();
         }
 
         public List<Card> GetCardsByName(string name)
         {
             //TODO: refine the search criteria here
-            return _context.Cards.Where(c => c.Name.Contains(name)).ToList();
+            return _context.Cards
+                .Where(c => c.Name.Contains(name))
+                .ToList();
         }
     }
 }

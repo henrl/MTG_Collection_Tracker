@@ -49,7 +49,7 @@
             app.UseMvc(routes => {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Card}/{action=Index}"
+                    template: "{controller=Home}/{action=Index}"
                 );
             });
         }

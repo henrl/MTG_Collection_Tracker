@@ -12,10 +12,5 @@ namespace Glee_Max.Web.Controllers
         {
             _cardService = cardService;
         }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
     }
 }
