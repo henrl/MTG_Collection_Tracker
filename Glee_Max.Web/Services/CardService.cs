@@ -16,10 +16,9 @@ namespace Glee_Max.Web.Services
 
         public List<Card> GetAllCards()
         {
-            //TODO: refine the select statement here so there's some mapping between db entity and dto
+            //TODO: get rid of Id < 20 filter
             return _context.Cards
-                .Where(c => c.Language == DefaultLanguage)
-                .Select(c => c)
+                .Where(c => c.Language == DefaultLanguage && c.Id < 20)
                 .ToList();
         }
 
