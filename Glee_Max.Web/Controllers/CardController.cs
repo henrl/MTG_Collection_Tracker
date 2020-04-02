@@ -7,6 +7,7 @@ namespace Glee_Max.Web.Controllers
     using Glee_Max.Web.Helpers;
     using Glee_Max.Web.Services;
 
+    [Route("/api/cards")]
     public class CardController : Controller
     {
         private readonly ICardService _cardService;
@@ -24,6 +25,7 @@ namespace Glee_Max.Web.Controllers
                 .ToList());
         }
 
+        // TODO: change this so it works with strings with spaces in them
         [HttpGet("{name}")]
         public IActionResult GetCardsByName(string name)
         {
