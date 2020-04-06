@@ -1,7 +1,7 @@
-using NUnit.Framework;
-
 namespace Tests
 {
+    using NUnit.Framework;
+
     public class Tests
     {
         [SetUp]
