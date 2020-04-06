@@ -21,6 +21,7 @@
 
             Configuration = builder.Build();
         }
+        private readonly string AllowedOrigins = "allowedOrigins";
 
         public IConfiguration Configuration { get; }
 
@@ -28,6 +29,12 @@
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options => {
+                options.AddPolicy(AllowedOrigins,
+                builder => {
+                    builder.WithOrigins(Configuration.GetValue<string>("JsAppDomain"));
+                });
+            });
             services.AddDbContext<CardContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
@@ -45,6 +52,8 @@
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(AllowedOrigins);
 
             app.UseMvc(routes => {
                 routes.MapRoute(
