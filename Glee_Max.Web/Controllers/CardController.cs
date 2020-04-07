@@ -2,6 +2,7 @@ namespace Glee_Max.Web.Controllers
 {
     using System.Linq;
     using Microsoft.AspNetCore.Mvc;
+    using Glee_Max.Web.Dtos;
     using Glee_Max.Web.Helpers;
     using Glee_Max.Web.Services;
 
@@ -15,11 +16,10 @@ namespace Glee_Max.Web.Controllers
             _cardService = cardService;
         }
 
-        // TODO: change this so it works with strings with spaces in them
-        [HttpGet("{name}")]
-        public IActionResult GetCardsByName(string name)
+        [HttpGet]
+        public IActionResult GetCardsByName([FromBody]Search search)
         {
-            return Ok(_cardService.GetCardsByName(name)
+            return Ok(_cardService.GetCardsBySearch(search)
                 .Select(Mapper.MapToCardDto)
                 .ToList());
         }
