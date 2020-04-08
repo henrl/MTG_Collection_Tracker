@@ -1,13 +1,19 @@
 import axios from 'axios';
 
-export default class ApiHelper {
+export class ApiHelper {
     constructor() {
         // TODO: change this so it is configurable and not hardcoded
         this.baseUrl = 'https://localhost:5001';
     }
 
-    async static getAllCards(){
-        return axios.get(this.baseUrl + '/api/cards')
+    getCardsViaSearch(searchString){
+        return axios.get(this.baseUrl + '/api/cards', {
+            params: {
+                Search: {
+                    SearchString: searchString
+                }
+            }
+        })
         .then(response => {
             return response.data;
         })
@@ -15,4 +21,4 @@ export default class ApiHelper {
             console.log(e);
         });
     }
-};
+}

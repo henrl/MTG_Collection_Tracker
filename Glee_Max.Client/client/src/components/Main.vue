@@ -6,7 +6,7 @@
       <b-row>
         <b-col sm="3" />
         <b-col sm="6">
-          <b-form-input :id="search-box" placeholder="Please enter a card name"/>
+          <b-form-input v-model="searchString" placeholder="Please enter a card name"/>
         </b-col>
         <b-col sm="3" />
       </b-row>
@@ -14,7 +14,7 @@
       <b-row>
         <b-col sm="5" />
         <b-col sm="2">
-          <b-button variant="primary">Search</b-button>
+          <b-button variant="primary" v-on:click="getCardsByNameSearch">Search</b-button>
         </b-col>
         <b-col sm="5" />
       </b-row>
@@ -23,10 +23,23 @@
 </template>
 
 <script>
+import { ApiHelper } from '@/helpers/ApiHelper.js';
 export default {
   name: 'Main',
   props: {
     msg: String
+  },
+  data: function() {
+    return {
+      searchString: ""
+    };
+  },
+  methods: {
+    getCardsByNameSearch() {
+      let helper = new ApiHelper();
+      let results = helper.getCardsViaSearch(this.searchString);
+      console.log(results);
+    }
   }
 }
 </script>
