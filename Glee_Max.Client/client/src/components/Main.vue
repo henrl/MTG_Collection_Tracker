@@ -32,7 +32,12 @@
           :per-page="perPage"
           :current-page="currentPage"
           :fields="fields"
-        />
+        >
+          <template v-slot:cell(actions)>
+            <b-button block variant="success">Details</b-button>
+            <b-button block variant="primary">Edit quantity</b-button>
+          </template>
+        </b-table>
       </b-row>
     </b-container>
   </div>
@@ -83,6 +88,10 @@ export default {
         {
           key: 'quantity',
           sortable: true
+        },
+        {
+          key: 'actions',
+          sortable: false
         }
       ]
     };
