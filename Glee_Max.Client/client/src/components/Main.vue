@@ -21,7 +21,18 @@
       <br/>
       <b-row>
         <b-pagination v-model="currentPage" :total-rows="rows" :per-page="perPage" aria-controls="search-results"/>
-        <b-table striped hover :items="searchResults" :per-page="perPage" :current-page="currentPage"/>
+        <b-table
+          striped
+          bordered
+          small
+          hover
+          outlined
+          head-variant='dark'
+          :items="searchResults"
+          :per-page="perPage"
+          :current-page="currentPage"
+          :fields="fields"
+        />
       </b-row>
     </b-container>
   </div>
@@ -38,8 +49,42 @@ export default {
     return {
       perPage: 10,
       currentPage: 1,
-      searchString: "",
+      searchString: '',
       searchResults: [],
+      fields: [
+        {
+          key: 'name',
+          sortable: true
+        },
+        {
+          key: 'manaCost',
+          sortable: false
+        },
+        {
+          key: 'typeLine',
+          sortable: true
+        },
+        {
+          key: 'setName',
+          sortable: true
+        },
+        {
+          key: 'power',
+          sortable: true
+        },
+        {
+          key: 'toughness',
+          sortable: true
+        },
+        {
+          key: 'commanderLegal',
+          sortable: true
+        },
+        {
+          key: 'quantity',
+          sortable: true
+        }
+      ]
     };
   },
   methods: {
