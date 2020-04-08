@@ -7,6 +7,7 @@ namespace Glee_Max.Web.Controllers
     using Glee_Max.Web.Services;
 
     [Route("/api/cards")]
+    [ApiController]
     public class CardController : Controller
     {
         private readonly ICardService _cardService;
@@ -16,7 +17,7 @@ namespace Glee_Max.Web.Controllers
             _cardService = cardService;
         }
 
-        [HttpGet]
+        [HttpPost]
         public IActionResult GetCardsByName([FromBody]Search search)
         {
             return Ok(_cardService.GetCardsBySearch(search)

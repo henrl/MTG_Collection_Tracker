@@ -33,7 +33,9 @@
             services.AddCors(options => {
                 options.AddPolicy(AllowedOrigins,
                 builder => {
-                    builder.WithOrigins(Configuration.GetValue<string>("JsAppDomain"));
+                    builder.WithOrigins(Configuration.GetValue<string>("JsAppDomain"))
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
                 });
             });
             services.AddDbContext<CardContext>(options =>

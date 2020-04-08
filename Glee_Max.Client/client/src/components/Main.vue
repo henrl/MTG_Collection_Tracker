@@ -35,9 +35,9 @@ export default {
     };
   },
   methods: {
-    getCardsByNameSearch() {
+    getCardsByNameSearch: async function() {
       let helper = new ApiHelper();
-      let results = helper.getCardsViaSearch(this.searchString);
+      let results = await helper.getCardsViaSearch(this.searchString);
       console.log(results);
     }
   }

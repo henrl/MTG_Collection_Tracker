@@ -6,12 +6,12 @@ export class ApiHelper {
         this.baseUrl = 'https://localhost:5001';
     }
 
-    getCardsViaSearch(searchString){
-        return axios.get(this.baseUrl + '/api/cards', {
-            params: {
-                Search: {
-                    SearchString: searchString
-                }
+    async getCardsViaSearch(nameSearch){
+        let results = await axios({
+            method: 'post',
+            url: this.baseUrl + '/api/cards',
+            data: {
+                'searchString': nameSearch
             }
         })
         .then(response => {
@@ -20,5 +20,6 @@ export class ApiHelper {
         .catch(e => {
             console.log(e);
         });
+        return results;
     }
 }
