@@ -13,7 +13,12 @@ Enter Glee_Max. It's basically just another CRUD app, but it will be useful for 
 4. In .NET Core CLI, type `dotnet ef database update` to run the code-first migrations.
 
 ## How to set up the CRUD app
-coming soon...
+1. Navigate to the Glee_Max.Web folder.
+2. Run `dotnet watch run`.
+
+## How to set up the Vue app
+1. Navigate to the Glee_Max.Client folder, then the client folder.
+2. Run `npm run serve`.
 
 ## How to periodically update the data
 coming soon...
