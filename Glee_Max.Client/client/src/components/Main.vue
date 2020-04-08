@@ -18,6 +18,11 @@
         </b-col>
         <b-col sm="5" />
       </b-row>
+      <br/>
+      <b-row>
+        <b-pagination v-model="currentPage" :total-rows="rows" :per-page="perPage" aria-controls="search-results"/>
+        <b-table striped hover :items="searchResults" :per-page="perPage" :current-page="currentPage"/>
+      </b-row>
     </b-container>
   </div>
 </template>
@@ -31,14 +36,21 @@ export default {
   },
   data: function() {
     return {
-      searchString: ""
+      perPage: 10,
+      currentPage: 1,
+      searchString: "",
+      searchResults: [],
     };
   },
   methods: {
     getCardsByNameSearch: async function() {
       let helper = new ApiHelper();
-      let results = await helper.getCardsViaSearch(this.searchString);
-      console.log(results);
+      this.searchResults = await helper.getCardsViaSearch(this.searchString);
+    }
+  },
+  computed: {
+    rows() {
+      return this.searchResults.length;
     }
   }
 }
