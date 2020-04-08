@@ -34,16 +34,20 @@
           :fields="fields"
         >
           <template v-slot:cell(actions)="data">
-            <b-button block variant="success" @click="showInfo(data.item)">Details</b-button>
+            <b-button v-b-modal.details-modal block variant="success" @click="showInfo(data.item)">Details</b-button>
           </template>
         </b-table>
       </b-row>
     </b-container>
+    <b-modal id="details-modal">
+      <pre>{{ selectedItem }}</pre>
+    </b-modal>
   </div>
 </template>
 
 <script>
 import { ApiHelper } from '@/helpers/ApiHelper.js';
+
 export default {
   name: 'Main',
   props: {
@@ -92,7 +96,26 @@ export default {
           key: 'actions',
           sortable: false
         }
-      ]
+      ],
+      selectedItem: {
+        id: 0,
+        name: '',
+        uri: '',
+        scryfallUri: '',
+        manaCost: '',
+        cmc: 0,
+        typeLine: '',
+        oracleText: '',
+        colors: '',
+        colorIdentity: '',
+        setName: '',
+        power: '',
+        toughness: '',
+        flavorText: '',
+        commanderLegal: false,
+        quantity: 0
+      },
+      showDetailsModal: false
     };
   },
   methods: {
@@ -102,8 +125,23 @@ export default {
     },
     showInfo: function(item) {
       // TODO: actually open a modal with the item details displayed
-      // TODO: delete this console.log when possible
-      console.log(item);
+      this.selectedItem.id = item.id;
+      this.selectedItem.name = item.name;
+      this.selectedItem.uri = item.uri;
+      this.selectedItem.scryfallUri = item.scryfallUri;
+      this.selectedItem.manaCost = item.manaCost;
+      this.selectedItem.cmc = item.cmc;
+      this.selectedItem.typeLine = item.typeLine;
+      this.selectedItem.oracleText = item.oracleText;
+      this.selectedItem.colors = item.colors;
+      this.selectedItem.colorIdentity = item.colorIdentity;
+      this.selectedItem.setName = item.setName;
+      this.selectedItem.power = item.power;
+      this.selectedItem.toughness = item.toughness;
+      this.selectedItem.flavorText = item.flavorText;
+      this.selectedItem.commanderLegal = item.commanderLegal;
+      this.selectedItem.quantity = item.quantity;
+      this.showDetailsModal = true;
     }
   },
   computed: {
