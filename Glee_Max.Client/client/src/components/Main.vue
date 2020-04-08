@@ -33,9 +33,8 @@
           :current-page="currentPage"
           :fields="fields"
         >
-          <template v-slot:cell(actions)>
-            <b-button block variant="success">Details</b-button>
-            <b-button block variant="primary">Edit quantity</b-button>
+          <template v-slot:cell(actions)="data">
+            <b-button block variant="success" @click="showInfo(data.item)">Details</b-button>
           </template>
         </b-table>
       </b-row>
@@ -100,6 +99,11 @@ export default {
     getCardsByNameSearch: async function() {
       let helper = new ApiHelper();
       this.searchResults = await helper.getCardsViaSearch(this.searchString);
+    },
+    showInfo: function(item) {
+      // TODO: actually open a modal with the item details displayed
+      // TODO: delete this console.log when possible
+      console.log(item);
     }
   },
   computed: {
