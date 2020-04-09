@@ -40,18 +40,22 @@
       </b-row>
     </b-container>
     <b-modal id="details-modal">
-      <pre>{{ selectedItem }}</pre>
+      <Details :itemData="selectedItem"/>
     </b-modal>
   </div>
 </template>
 
 <script>
 import { ApiHelper } from '@/helpers/ApiHelper.js';
+import Details from '@/components/Details.vue';
 
 export default {
   name: 'Main',
   props: {
     msg: String
+  },
+  components: {
+    Details
   },
   data: function() {
     return {
@@ -124,7 +128,6 @@ export default {
       this.searchResults = await helper.getCardsViaSearch(this.searchString);
     },
     showInfo: function(item) {
-      // TODO: actually open a modal with the item details displayed
       this.selectedItem.id = item.id;
       this.selectedItem.name = item.name;
       this.selectedItem.uri = item.uri;
