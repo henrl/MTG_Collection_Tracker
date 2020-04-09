@@ -77,7 +77,7 @@ export default {
     },
     computed: {
         disableIfSameQuantity: function() {
-            return this.quantity === this.itemData.quantity;
+            return Number(this.quantity) === this.itemData.quantity;
         }
     }
 }
