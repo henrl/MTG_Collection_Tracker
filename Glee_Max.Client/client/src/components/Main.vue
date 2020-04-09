@@ -39,7 +39,7 @@
         </b-table>
       </b-row>
     </b-container>
-    <b-modal id="details-modal">
+    <b-modal ok-only hide-header size="lg" id="details-modal">
       <Details :itemData="selectedItem"/>
     </b-modal>
   </div>
@@ -118,8 +118,7 @@ export default {
         flavorText: '',
         commanderLegal: false,
         quantity: 0
-      },
-      showDetailsModal: false
+      }
     };
   },
   methods: {
@@ -145,6 +144,9 @@ export default {
       this.selectedItem.commanderLegal = item.commanderLegal;
       this.selectedItem.quantity = item.quantity;
       this.showDetailsModal = true;
+    },
+    updateDetails: function(){
+        alert(this.selectedItem.id + ',' + this.selectedItem.quantity);
     }
   },
   computed: {

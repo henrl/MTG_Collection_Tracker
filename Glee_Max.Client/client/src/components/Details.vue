@@ -1,20 +1,24 @@
 <template>
     <div>
-        <h4>{{ this.name }}</h4>
-        <p v-if="this.commanderLegal === false"><strong>Not Commander Legal</strong></p>
-        <p>{{ this.manaCost }} - (converted mana cost: {{ this.cmc }})</p>
-        <p>{{ this.setName }}</p>
-        <p>{{ this.typeLine }}</p>
-        <p>{{ this.oracleText }}</p>
-        <p v-if="this.power && this.toughness">
-            {{ this.power }} / {{ this.toughness }}
+        <h4>{{ name }}</h4>
+        <p v-if="commanderLegal === false"><strong>Not Commander Legal</strong></p>
+        <p>{{ manaCost }} - (converted mana cost: {{ cmc }})</p>
+        <p>{{ setName }}</p>
+        <hr/>
+        <p>{{ typeLine }}</p>
+        <p>{{ oracleText }}</p>
+        <p v-if="power && toughness">
+            {{ power }} / {{ toughness }}
         </p>
         <b-row>
             <b-col sm="2">
-                <label >Quantity</label>
+                <label >Quantity : </label>
             </b-col>
-            <b-col sm="10">
-                <b-input type="number" min="0" :value="this.quantity"></b-input>
+            <b-col sm="2">
+                <b-input type="number" min="0" v-model="quantity"></b-input>
+            </b-col>
+            <b-col sm="4">
+                <b-button variant="success" v-on:click="updateQuantity">Update Quantity</b-button>
             </b-col>
         </b-row>
     </div>
@@ -27,6 +31,7 @@ export default {
         itemData: Object
     },
     mounted: function() {
+        this.id = this.itemData.id;
         this.name = this.itemData.name;
         this.manaCost = this.itemData.manaCost;
         this.cmc = this.itemData.cmc;
@@ -40,6 +45,7 @@ export default {
     },
     data: function() {
         return {
+            id: 0,
             name: '',
             uri: '',
             scryfallUri: '',
@@ -56,6 +62,11 @@ export default {
             commanderLegal: true,
             quantity: 0
         };
+    },
+    methods: {
+        updateQuantity: function() {
+            alert(this.id + ',' + this.quantity);
+        }
     }
 }
 </script>
