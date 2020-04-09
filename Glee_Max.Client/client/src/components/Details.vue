@@ -63,16 +63,24 @@ export default {
             flavorText: '',
             commanderLegal: true,
             quantity: 0,
-            success: true,
-            submitted: false
+            success: true
         };
     },
     methods: {
         updateQuantity: async function() {
             let helper = new ApiHelper();
             this.success = await helper.updateCardQuantity(this.id, this.quantity);
-            console.log(this.success);
-            this.submitted = true;
+            if (this.success) {
+                this.$bvToast.toast('Successfully updated quantity', {
+                    autoHideDelay: 6000,
+                    variant: 'success'
+                });
+            } else {
+                this.$bvToast.toast('An error occurred when updating', {
+                    autoHideDelay: 6000,
+                    variant: 'danger'
+                })
+            }
         }
     },
     computed: {
