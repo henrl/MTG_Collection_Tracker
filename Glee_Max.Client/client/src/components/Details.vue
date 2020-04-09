@@ -6,7 +6,9 @@
         <p>{{ this.setName }}</p>
         <p>{{ this.typeLine }}</p>
         <p>{{ this.oracleText }}</p>
-        <p v-if="this.power !== '' && this.toughness !== ''">{{ this.power }} / {{ this.toughness }}</p>
+        <p v-if="this.power && this.toughness">
+            {{ this.power }} / {{ this.toughness }}
+        </p>
         <b-row>
             <b-col sm="2">
                 <label >Quantity</label>
