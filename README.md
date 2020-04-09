@@ -1,4 +1,4 @@
-# Glee_Max Collection Database
+# Glee_Max MTG Collection Tracker
 A little side project I did to keep track of cards in my MTG collection.
 
 ## How to set up your database locally
