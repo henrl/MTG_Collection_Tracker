@@ -8,6 +8,7 @@ namespace Glee_Max.Test.Services
     using Glee_Max.Web.Services;
     using Microsoft.EntityFrameworkCore;
     using NUnit.Framework;
+    using NSubstitute;
 
     public class CardServiceTests
     {
@@ -30,6 +31,18 @@ namespace Glee_Max.Test.Services
             Assert.AreEqual(1, results.Count);
             Assert.AreEqual(2, results.First().Id);
             Assert.AreEqual(search.SearchString, results.First().Name);
+        }
+
+        [Test]
+        public void CardUpdateWithValidNumber_ReturnsTrue()
+        {
+            var update = new CardAmountUpdateDto { Id = 1, Quantity = 40 };
+            var success = _cardService.UpdateCardQuantity(update);
+            Assert.IsTrue(success);
+
+            var search = new Search { SearchString = "Test Card" };
+            var result = _cardService.GetCardsBySearch(search).First(c => c.Id == 1);
+            Assert.AreEqual(40, result.Quantity);
         }
 
         private CardContext GetContextWithData()
