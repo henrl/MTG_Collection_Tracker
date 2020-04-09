@@ -1,6 +1,13 @@
 # Glee_Max MTG Collection Tracker
 A little side project I did to keep track of cards in my MTG collection.
 
+## Required tools
+* [.NET Core CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/)
+* [Node.js](https://nodejs.org/en/)
+* [Vue CLI](https://cli.vuejs.org/)
+* A text editor (I highly recommend [VS Code](https://code.visualstudio.com/))
+* [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+
 ## How to set up your database locally
 1. Go to https://scryfall.com/docs/api/bulk-data, and download the Default Cards JSON. This contains the name of every MTG card ever printed.
 2. Make a new database in SQL Server Management Studio.
