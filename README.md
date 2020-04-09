@@ -7,6 +7,7 @@ A little side project I did to keep track of cards in my MTG collection.
 * [Vue CLI](https://cli.vuejs.org/)
 * A text editor (I highly recommend [VS Code](https://code.visualstudio.com/))
 * [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+* [RStudio](https://rstudio.com/) to run the R script in the Miscellaneous folder
 
 ## How to set up your database locally
 1. Go to https://scryfall.com/docs/api/bulk-data, and download the Default Cards JSON. This contains the name of every MTG card ever printed.
