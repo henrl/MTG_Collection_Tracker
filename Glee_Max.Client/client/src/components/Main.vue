@@ -39,7 +39,7 @@
         </b-table>
       </b-row>
     </b-container>
-    <b-modal ok-only hide-header size="lg" id="details-modal">
+    <b-modal ok-only hide-header size="lg" id="details-modal" @ok="handleOk">
       <Details :itemData="selectedItem"/>
     </b-modal>
   </div>
@@ -125,6 +125,9 @@ export default {
     getCardsByNameSearch: async function() {
       let helper = new ApiHelper();
       this.searchResults = await helper.getCardsViaSearch(this.searchString);
+    },
+    handleOk: function() {
+        this.getCardsByNameSearch();
     },
     showInfo: function(item) {
       this.selectedItem.id = item.id;

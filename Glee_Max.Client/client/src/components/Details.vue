@@ -18,7 +18,7 @@
                 <b-input type="number" min="0" v-model="quantity"></b-input>
             </b-col>
             <b-col sm="4">
-                <b-button variant="success" v-on:click="updateQuantity">Update Quantity</b-button>
+                <b-button :disabled="disableIfSameQuantity" variant="success" v-on:click="updateQuantity">Update Quantity</b-button>
             </b-col>
         </b-row>
     </div>
@@ -73,6 +73,11 @@ export default {
             this.success = await helper.updateCardQuantity(this.id, this.quantity);
             console.log(this.success);
             this.submitted = true;
+        }
+    },
+    computed: {
+        disableIfSameQuantity: function() {
+            return this.quantity === this.itemData.quantity;
         }
     }
 }
