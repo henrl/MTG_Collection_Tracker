@@ -7,5 +7,7 @@ namespace Glee_Max.Web.Services
     public interface ICardService
     {
         List<Card> GetCardsBySearch(Search search);
+
+        bool UpdateCardQuantity(CardAmountUpdateDto update);
     }
 }

@@ -144,9 +144,6 @@ export default {
       this.selectedItem.commanderLegal = item.commanderLegal;
       this.selectedItem.quantity = item.quantity;
       this.showDetailsModal = true;
-    },
-    updateDetails: function(){
-        alert(this.selectedItem.id + ',' + this.selectedItem.quantity);
     }
   },
   computed: {

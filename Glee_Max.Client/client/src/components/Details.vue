@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import { ApiHelper } from '@/helpers/ApiHelper.js';
+
 export default {
     name: 'Details',
     props: {
@@ -60,12 +62,17 @@ export default {
             toughness: '',
             flavorText: '',
             commanderLegal: true,
-            quantity: 0
+            quantity: 0,
+            success: true,
+            submitted: false
         };
     },
     methods: {
-        updateQuantity: function() {
-            alert(this.id + ',' + this.quantity);
+        updateQuantity: async function() {
+            let helper = new ApiHelper();
+            this.success = await helper.updateCardQuantity(this.id, this.quantity);
+            console.log(this.success);
+            this.submitted = true;
         }
     }
 }

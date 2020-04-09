@@ -24,5 +24,11 @@ namespace Glee_Max.Web.Controllers
                 .Select(Mapper.MapToCardDto)
                 .ToList());
         }
+
+        [HttpPut]
+        public IActionResult UpdateCardQuantity([FromBody]CardAmountUpdateDto update)
+        {
+            return Ok(_cardService.UpdateCardQuantity(update));
+        }
     }
 }

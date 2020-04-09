@@ -27,5 +27,25 @@ namespace Glee_Max.Web.Services
                 .Where(c => c.Name.Contains(search.SearchString))
                 .ToList();
         }
+
+        public bool UpdateCardQuantity(CardAmountUpdateDto update)
+        {
+            if (update == null || update.Id <= 0 || update.Quantity < 0)
+            {
+                return false;
+            }
+
+            var card = _context.Cards.FirstOrDefault(c => c.Id == update.Id);
+
+            if (card == null)
+            {
+                return false;
+            }
+
+            card.Quantity = update.Quantity;
+            _context.SaveChanges();
+
+            return true;
+        }
     }
 }
