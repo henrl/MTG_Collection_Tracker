@@ -125,6 +125,7 @@ export default {
     getCardsByNameSearch: async function() {
       let helper = new ApiHelper();
       this.searchResults = await helper.getCardsViaSearch(this.searchString);
+      this.currentPage = 1;
     },
     handleOk: function() {
         this.getCardsByNameSearch();

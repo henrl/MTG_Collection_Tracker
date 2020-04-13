@@ -7,6 +7,7 @@
         <hr/>
         <p>{{ typeLine }}</p>
         <p>{{ oracleText }}</p>
+        <p><em>{{ flavorText }}</em></p>
         <p v-if="power && toughness">
             {{ power }} / {{ toughness }}
         </p>
@@ -39,6 +40,7 @@ export default {
         this.cmc = this.itemData.cmc;
         this.typeLine = this.itemData.typeLine;
         this.oracleText = this.itemData.oracleText;
+        this.flavorText = this.itemData.flavorText;
         this.setName = this.itemData.setName;
         this.power = this.itemData.power;
         this.toughness = this.itemData.toughness;
