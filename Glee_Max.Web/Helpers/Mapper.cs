@@ -15,7 +15,7 @@ namespace Glee_Max.Web.Helpers
                 ScryfallUri = card.ScryfallUri,
                 ManaCost = card.ManaCost,
                 Cmc = card.Cmc,
-                TypeLine = card.TypeLine,
+                TypeLine = card.TypeLine.Replace("â€”", "-"),
                 OracleText = card.OracleText,
                 Colors = card.Colors,
                 ColorIdentity = card.ColorIdentity,

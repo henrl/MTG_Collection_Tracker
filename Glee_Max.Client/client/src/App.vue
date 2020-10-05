@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Main msg="MTG Collection Tracker"/>
+    <Main msg="MTG Card Search Engine"/>
   </div>
 </template>
 
