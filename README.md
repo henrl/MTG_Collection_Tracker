@@ -1,4 +1,4 @@
-# Glee_Max MTG Collection Tracker
+# MTG Collection Tracker
 A little side project I did to keep track of cards in my MTG collection.
 
 ## Required tools
